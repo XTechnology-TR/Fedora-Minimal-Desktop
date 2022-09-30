@@ -52,6 +52,7 @@ if [ $opti = "1" ]
 then
 	echo 'fastestmirror=1' >> /etc/dnf/dnf.conf
 	echo 'max_parallel_downloads=10' >> /etc/dnf/dnf.conf
+	echo 'deltarpm=true' >> /etc/dnf/dnf.conf
 else
 	echo ""
 fi
@@ -60,7 +61,7 @@ fi
 ##Installing core apps
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
 ##Question for App Store
-echo "Would you like to use Gnome-software ?"
+echo "Gnome Yazılımları Yüklensin mi?"
 echo "1= yes 0 = no"
 appstore=0
 read appstore
@@ -107,9 +108,9 @@ else
 fi
 
 ##reboot prompt
-echo "Would you like to restart your system now ?"
-echo "If no you can use your system in CLI until you reboot."
-echo "1 = yes 0 = no"
+echo "Sorunsuz olarak kurulum gerçekleşti,sistem çalışmaya hazır!"
+echo "Kurulumların yerleşimi için biglisayarı şimdi sistemi yeniden başlatmak istermisin?."
+echo "1 = evet 0 = hayır"
 restart=1
 read restart
 if [ $restart = "1" ]
